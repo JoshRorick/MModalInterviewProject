@@ -1,0 +1,44 @@
+To build the project:
+1) Navigate to the unzipped directory in a terminal and run gradlew build
+2) Once complete, execute the following command: java -jar build/libs/gs-rest-service-0.1.0.jar
+
+
+
+
+
+Order calls
+
+Creates an order:
+curl -get localhost:8080/order/createOrder/{orderID}
+
+Deletes an order:
+curl -get localhost:8080/order/deleteOrder/{orderID}
+
+Adds an existing project to an existing order
+curl -get localhost:8080/order/addProduct/{orderID}/{productID}
+
+Removess an existing project from an existing order
+curl -get localhost:8080/order/removeProduct/{orderID}/{productID}
+
+Retrieves a given order:
+curl -get localhost:8080/order/{orderID}
+
+Retrieves a list of all orders
+curl -get localhost:8080/order/list
+
+
+
+Product calls
+Note: ID is equivalent to name
+
+Adds a product:
+curl  --header "Content-Type: application/json" -d "{\"name\": \"apple\", \"description\": \"red round fruit\", \"cost\": \".5\"}" localhost:8080/product/createProduct
+
+Adds a list of products:
+curl  --header "Content-Type: application/json" -d "[{\"name\": \"apple\", \"description\": \"red round fruit\", \"cost\": \".5\"},{\"name\": \"avocado\", \"description\": \"green round fruit\", \"cost\": \"1.5\"}]" localhost:8080/product/createProducts
+
+Deletes a given product:
+curl -get localhost:8080/product/deleteProduct/{productID}
+
+Retrieves a list of all products
+curl -get localhost:8080/order/list
